@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ReCircula RS – Marketplace de resíduos industriais e eletrônicos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F2F5F1;--sf:#fff;--tx:#11241C;--mu:#55685E;--gr:#0E5C44;--gr2:#DCEBE2;--sg:#FFC21A;--ln:#D5DDD6;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E1713;--sf:#16231C;--tx:#E6EEE8;--mu:#9DB0A5;--gr:#4FCB9E;--gr2:#1D3328;--ln:#2A3C32}}
+:root[data-theme="dark"]{--bg:#0E1713;--sf:#16231C;--tx:#E6EEE8;--mu:#9DB0A5;--gr:#4FCB9E;--gr2:#1D3328;--ln:#2A3C32}
+html{scroll-padding-top:calc(70px + env(safe-area-inset-top,0px));scroll-behavior:smooth;height:100%}
+*{box-sizing:border-box;margin:0}
+body{font-family:'Bricolage Grotesque',system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--bg);color:var(--tx);line-height:1.55;font-size:17px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+.w{max-width:1080px;margin:auto;padding:0 20px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:11;background:var(--bg);border-bottom:1px solid var(--ln)}
+header .w{display:flex;align-items:center;justify-content:space-between;height:62px;gap:16px}
+.logo{font-weight:800;font-size:22px;color:var(--tx);text-decoration:none}.logo b{color:var(--gr)}
+nav{display:flex;gap:18px;overflow-x:auto}nav a{color:var(--mu);text-decoration:none;font-size:15px;white-space:nowrap}nav a:hover{color:var(--tx)}
+.btn{display:inline-block;background:var(--sg);color:#11241C;font:inherit;font-weight:600;border:0;border-radius:8px;padding:11px 20px;cursor:pointer;text-decoration:none}
+.btn.o{background:none;border:1.5px solid var(--tx);color:var(--tx)}
+:focus-visible{outline:3px solid var(--gr);outline-offset:2px}
+h1{font-size:clamp(38px,6vw,68px);line-height:1.02;font-weight:800;letter-spacing:-.025em}
+h2{font-size:clamp(28px,4vw,40px);line-height:1.1;font-weight:800;letter-spacing:-.02em;margin-bottom:12px}
+h3{font-size:19px;margin-bottom:6px}
+p.l{color:var(--mu);max-width:62ch}
+section{padding:68px 0;border-top:1px solid var(--ln)}
+.hero{padding:56px 0 64px;border:0}
+.hero .g{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
+.hero p.l{margin:18px 0 26px;font-size:19px}
+.demo{background:var(--sf);border:1.5px solid var(--tx);border-radius:14px;padding:20px}
+.demo label{font-weight:600;font-size:15px;display:block;margin-bottom:6px}
+select,input[type=text]{width:100%;font:inherit;padding:10px 12px;border-radius:8px;border:1.5px solid var(--ln);background:var(--bg);color:var(--tx)}
+.mt{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:12px 0;border-top:1px solid var(--ln);flex-wrap:wrap}
+.mt:first-of-type{margin-top:14px}
+.sc{font-weight:800;font-size:22px;color:var(--gr);min-width:56px}
+.mt small{color:var(--mu);display:block}
+.tag{display:inline-block;background:var(--gr2);color:var(--gr);border-radius:99px;padding:1px 9px;font-size:13px;font-weight:600}
+.sm{font-size:14px;padding:7px 12px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start;margin-top:28px}
+.box{background:var(--sf);border:1px solid var(--ln);border-radius:12px;padding:20px}
+.ph{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:10px 0}
+.ph i{aspect-ratio:4/3;border-radius:8px;background:linear-gradient(135deg,var(--gr2),var(--ln))}
+.ph i:nth-child(2){background:linear-gradient(45deg,var(--gr2),var(--sg))}
+.st{color:var(--sg);letter-spacing:2px;font-size:18px}
+#msgs{height:200px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;margin-bottom:10px}
+.b{max-width:80%;padding:8px 12px;border-radius:12px;background:var(--gr2);font-size:15px}
+.b.me{align-self:flex-end;background:var(--gr);color:var(--bg)}
+.row{display:flex;gap:8px}
+.seal{display:flex;gap:18px;align-items:center}
+.seal svg{flex:none;width:108px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px;counter-reset:s;padding:0;list-style:none}
+.steps li{background:var(--sf);border:1px solid var(--ln);border-radius:12px;padding:16px;counter-increment:s}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--sg);color:#11241C;font-weight:800;margin-bottom:8px}
+.steps li.k{border-color:var(--gr);border-width:2px}
+.bar{height:26px;border-radius:99px;background:var(--ln);display:flex;overflow:hidden;margin:12px 0}
+.bar span{height:100%;transition:width .3s}
+.route{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:12px;font-size:15px}
+.route span{background:var(--gr2);border-radius:8px;padding:6px 10px}
+.route em{font-style:normal;color:var(--mu)}
+.phone{max-width:340px;background:var(--sf);border:1.5px solid var(--tx);border-radius:24px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.wa{background:var(--gr2);border-radius:4px 14px 14px 14px;padding:10px 12px;font-size:15px}
+.wa small{display:block;color:var(--mu);font-size:12px;margin-top:2px}
+.fe{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+footer{background:var(--gr);color:#fff;padding:48px 0;text-align:center}
+footer h2{color:#fff}footer p{opacity:.85;margin:0 auto 22px;max-width:52ch}
+@media(max-width:820px){.hero .g,.cols{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.fe{grid-template-columns:1fr}nav{display:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.bar span{transition:none}}
+</style>
+</head>
+<body>
+<header><div class="w"><a class="logo" href="#topo">Re<b>Circula</b> RS</a>
+<nav><a href="#match">Match</a><a href="#confianca">Confiança</a><a href="#logistica">Logística</a><a href="#pagamento">Pagamento</a><a href="#whatsapp">Alertas</a></nav>
+<a class="btn sm" href="#cadastro">Cadastrar empresa</a></div></header>
+
+<main id="topo">
+<div class="w hero"><div class="g">
+<div><h1>O resíduo da sua fábrica é a matéria-prima de outra.</h1>
+<p class="l">O ReCircula RS conecta geradores e compradores de resíduos industriais e eletrônicos no Rio Grande do Sul, com negociação direta, frete combinado e pagamento protegido.</p>
+<a class="btn" href="#cadastro">Anunciar um resíduo</a> <a class="btn o" href="#match">Ver como funciona</a></div>
+<div class="demo" id="match" aria-live="polite"><label for="res">O que você quer repassar?</label>
+<select id="res"></select>
+<div id="out"></div><p style="font-size:13px;color:var(--mu);margin-top:10px">Empresas fictícias, só para demonstração.</p></div>
+</div></div>
+
+<section><div class="w"><h2>Match inteligente por região</h2>
+<p class="l">A plataforma cruza o tipo de resíduo, a atividade de cada empresa, a distância e as avaliações. Quando encontra um par, avisa o gerador e o comprador ao mesmo tempo. Teste acima: escolha um material e peça o aviso aos dois lados.</p>
+<div class="fe">
+<div class="box"><h3>Chat direto</h3><p class="l">Comprador e vendedor negociam preço, volume e prazo sem intermediários.</p></div>
+<div class="box"><h3>Fotos e avaliações</h3><p class="l">Cada lote tem fotos reais e nota de quem já negociou com o vendedor.</p></div>
+<div class="box"><h3>Selo de sustentabilidade</h3><p class="l">Mostra quem comprova boas práticas ambientais.</p></div>
+</div></div></section>
+
+<section id="confianca"><div class="w"><h2>Negocie com quem você confia</h2>
+<p class="l">Converse com a outra empresa, veja as fotos do lote e confira a reputação antes de fechar.</p>
+<div class="cols">
+<div class="box"><h3>Chat do lote: 4 t de sucata de alumínio</h3>
+<div id="msgs"><div class="b">Olá! O lote ainda está disponível?</div><div class="b me">Está sim. Posso enviar mais fotos.</div></div>
+<form class="row" id="cf"><input type="text" id="mi" placeholder="Escreva sua mensagem" aria-label="Mensagem"><button class="btn sm" type="submit">Enviar</button></form></div>
+<div class="box"><h3>Metalúrgica Exemplo Ltda.</h3>
+<div class="ph" role="img" aria-label="Fotos do lote"><i></i><i></i><i></i></div>
+<p><span class="st" aria-label="4,8 de 5 estrelas">★★★★★</span> 4,8 · 37 avaliações</p>
+<p class="l" style="margin-top:6px">“Material exatamente como nas fotos. Coleta pontual.”</p></div>
+</div>
+<div class="box seal" style="margin-top:28px"><svg viewBox="0 0 120 120" role="img" aria-label="Selo ReCircula"><circle cx="60" cy="60" r="56" fill="#0E5C44"/><circle cx="60" cy="60" r="46" fill="none" stroke="#FFC21A" stroke-width="3" stroke-dasharray="6 5"/><text x="60" y="58" text-anchor="middle" font-size="30" fill="#fff">♻</text><text x="60" y="84" text-anchor="middle" font-size="12" font-weight="700" fill="#FFC21A" font-family="sans-serif">SELO VERDE</text></svg>
+<div><h3>Selo de Sustentabilidade</h3><p class="l">Empresas com licenças ambientais em dia, destinação rastreada e boas avaliações recebem o selo, exibido em anúncios e perfis. Quem compra sabe com quem está negociando.</p></div></div>
+</div></section>
+
+<section id="logistica"><div class="w"><h2>Frete que cabe no bolso</h2>
+<p class="l">A plataforma reúne demandas de várias empresas em transportadoras parceiras homologadas. O volume garante tarifas melhores, mais segurança e coleta mais rápida.</p>
+<div class="cols">
+<div class="box"><h3>Consolidação de cargas fracionadas</h3>
+<p class="l">Três empresas da região já reuniram o mesmo tipo de resíduo. Veja o que muda com a sua carga.</p>
+<div class="bar" aria-hidden="true"><span style="background:var(--gr);width:21%"></span><span style="background:#2E8A6B;width:32%"></span><span style="background:#6DB89B;width:18%"></span><span id="mine" style="background:var(--sg);width:14%"></span></div>
+<label for="rg">Sua carga: <b id="rv">4</b> t</label><input id="rg" type="range" min="0" max="8" value="4" style="width:100%;accent-color:var(--gr)">
+<p id="tt" style="margin-top:8px"></p></div>
+<div class="box"><h3>Logística reversa</h3>
+<p class="l">O caminhão que entrega matéria-prima a uma indústria pode voltar carregado com os resíduos dela. A plataforma sugere a coleta no mesmo trajeto.</p>
+<div class="route"><span>Fornecedor</span><em>entrega matéria-prima →</em><span>Indústria</span><em>← coleta resíduos</em><span>Comprador</span></div>
+<p class="l" style="margin-top:12px">Nenhuma viagem de volta vazia.</p></div>
+</div></div></section>
+
+<section id="pagamento"><div class="w"><h2>Pagamento em custódia</h2>
+<p class="l">O dinheiro fica protegido na plataforma e só vai para o vendedor depois que o material chega e é conferido.</p>
+<ol class="steps"><li><h3>Comprador paga</h3><p class="l">O valor vai para a plataforma, não direto ao vendedor.</p></li>
+<li><h3>Coleta e transporte</h3><p class="l">O transportador retira o lote e leva até o comprador.</p></li>
+<li><h3>Conferência</h3><p class="l">Transportador e comprador confirmam o recebimento e o material.</p></li>
+<li class="k"><h3>Liberação</h3><p class="l">O pagamento é liberado ao vendedor.</p></li></ol></div></section>
+
+<section id="whatsapp"><div class="w"><div class="cols" style="align-items:center">
+<div><h2>Alertas no WhatsApp</h2><p class="l">Você acompanha tudo no celular, sem depender de e-mail. Cada passo da negociação gera um aviso direto.</p></div>
+<div class="phone"><div class="wa">Novo comprador interessado no seu lote de papelão.<small>09:12</small></div>
+<div class="wa">Sua cotação de frete foi aprovada.<small>10:40</small></div>
+<div class="wa">Caminhão a caminho para coleta.<small>13:05</small></div></div>
+</div></div></section>
+</main>
+
+<footer id="cadastro"><div class="w"><h2>Transforme resíduo em negócio</h2>
+<p>Cadastre sua empresa no ReCircula RS e faça parte da economia circular gaúcha.</p>
+<button class="btn" type="button" id="cb">Quero cadastrar minha empresa</button></div></footer>
+
+<script>
+var M={"Aparas de papelão":[["Papelão Sul Reciclagens","Triunfo",18,4.8,1],["Embalagens do Vale","São Sebastião do Caí",32,4.6,1],["Celulose Serra","Caxias do Sul",95,4.3,0]],
+"Sucata de alumínio":[["Fundição Gaúcha","Canoas",25,4.9,1],["Ligas e Metais RS","Novo Hamburgo",40,4.5,0],["Alumínio Pampa","Gravataí",55,4.4,1]],
+"Placas eletrônicas (e-lixo)":[["EletroRecicla","Porto Alegre",30,4.7,1],["TecnoCiclo","São Leopoldo",42,4.6,1],["Metais Raros Sul","Santa Cruz do Sul",110,4.2,0]],
+"Paletes de madeira":[["Paletes Reforma","Esteio",28,4.5,1],["Biomassa Vale","Montenegro",12,4.4,0],["Madeira Viva","Lajeado",70,4.7,1]],
+"Óleo lubrificante usado":[["Rerrefino Sul","Canoas",35,4.8,1],["Lubrifica Verde","Guaíba",48,4.5,1],["Óleo Novo RS","Pelotas",250,4.1,0]]};
+var sel=document.getElementById("res"),out=document.getElementById("out");
+Object.keys(M).forEach(function(k){var o=document.createElement("option");o.textContent=k;sel.appendChild(o)});
+function render(){out.innerHTML="";M[sel.value].forEach(function(m){
+var s=Math.max(60,Math.min(99,Math.round(100-m[2]*.22+(m[3]-4)*12)));
+var d=document.createElement("div");d.className="mt";
+d.innerHTML='<span class="sc">'+s+'%</span><div style="flex:1;min-width:150px"><b>'+m[0]+'</b>'+(m[4]?' <span class="tag">Selo verde</span>':'')+'<small>'+m[1]+' · '+m[2]+' km · ★ '+String(m[3]).replace(".",",")+'</small></div>';
+var b=document.createElement("button");b.className="btn sm";b.textContent="Avisar os dois lados";
+b.onclick=function(){b.textContent="Alerta enviado ✓";b.disabled=true;b.style.opacity=".7"};
+d.appendChild(b);out.appendChild(d)})}
+sel.onchange=render;render();
+var cf=document.getElementById("cf"),mi=document.getElementById("mi"),ms=document.getElementById("msgs");
+function add(t,me){var d=document.createElement("div");d.className="b"+(me?" me":"");d.textContent=t;ms.appendChild(d);ms.scrollTop=ms.scrollHeight}
+cf.onsubmit=function(e){e.preventDefault();var t=mi.value.trim();if(!t)return;add(t,1);mi.value="";
+setTimeout(function(){add("Combinado! Posso fechar com coleta na quinta-feira.",0)},700)};
+var rg=document.getElementById("rg");
+function tr(){var v=+rg.value,tot=20+v,cap=28,pct=function(x){return x/cap*100};
+document.getElementById("rv").textContent=v;
+document.getElementById("mine").style.width=pct(v)+"%";
+var c=Math.round(3600/tot);
+document.getElementById("tt").innerHTML="Carga: <b>"+tot+" t</b> de "+cap+" t. "+(tot>=cap?"Caminhão cheio. ":"Faltam "+(cap-tot)+" t para fechar. ")+"Frete rateado: cerca de <b>R$ "+c+"/t</b> <small>(valor ilustrativo)</small>."}
+rg.oninput=tr;tr();
+document.getElementById("cb").onclick=function(){this.textContent="Em breve! Você será avisado no lançamento ✓"};
+</script>
+</body>
+</html>
